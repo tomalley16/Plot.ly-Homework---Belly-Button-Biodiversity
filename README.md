@@ -1,12 +1,10 @@
+# Plot.ly Homework - Belly Button Biodiversity
 
-here is the link:
-<a href"
+Here is a link to go directly to the site:
 
 http://127.0.0.1:5500/StarterCode/index.html
 
-
-
-# Plot.ly Homework - Belly Button Biodiversity
+Below were the instructions and description of the assignment:
 
 ![Bacteria by filterforge.com](Images/bacteria.jpg)
 
