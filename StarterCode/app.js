@@ -74,3 +74,50 @@ let barLayout = {
     paper_bgcolor: "transparent"
 };
 Plotly.newPlot("bar", barData, barLayout)   
+
+    
+
+
+// -----------------------------------
+// Set up bubble chart:
+let bubbleTrace = {
+    x: otu_ids,
+    y: sample_values,
+    mode: 'markers',
+    marker: {
+    size: sample_values,
+    color: otu_ids
+    },
+    text: otu_labels
+};
+
+let bubbleData = [bubbleTrace];
+
+let bubbleLayout = {
+    title: `All OTU Values for Subject ${subject_id}`,
+    titlefont:{
+        family: 'Quicksand, sans-serif',
+        size: 28
+    },
+    font:{
+        family: 'Quicksand, sans-serif',
+        size: 14
+    },
+    showlegend: false,
+    height: 600,
+    width: 1200,
+    plot_bgcolor: "transparent",
+    paper_bgcolor: "transparent",
+    xaxis: {gridcolor: '#fff', zerolinecolor: 'white'},
+    yaxis: {gridcolor: '#fff', zerolinecolor: 'white'},
+    margin: {
+        l: 50,
+        r: 0,
+        t: 50,
+        b: 50
+    }, 
+};
+
+Plotly.newPlot("bubble", bubbleData, bubbleLayout);
+
+// ---------------------------------------------------------------
