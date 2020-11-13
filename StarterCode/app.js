@@ -121,3 +121,26 @@ let bubbleLayout = {
 Plotly.newPlot("bubble", bubbleData, bubbleLayout);
 
 // ---------------------------------------------------------------
+
+// Set Up function to get demo info:
+function Demographics(id) {
+
+    d3.json("samples.json").then(function(sample_data) {
+        let filteredDemoInfo = sample_data.metadata.filter(details => details.id.toString() === id)[0];
+
+        let demographicInfo = d3.select("#sample-metadata");
+            
+        demographicInfo.html("");
+    
+        Object.entries(filteredDemoInfo).forEach(function([key, value]) {   
+            demographicInfo.append("h4").text(`${key}: ${value}`);    
+        });
+    });
+}
+
+// Change for new id selection:
+
+function optionChanged(id) {
+    Data(id);
+    Demographics(id);
+}
