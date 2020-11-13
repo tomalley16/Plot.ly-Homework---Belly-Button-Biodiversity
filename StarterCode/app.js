@@ -47,7 +47,7 @@ function Data(id) {
             type: "bar",
             orientation: "h",
             marker: {
-                color: "#6b5b9c",
+                color: "blue",
             },
             bgcolor: "transparent"
         };
@@ -91,7 +91,7 @@ function Data(id) {
             mode: 'markers',
             marker: {
             size: sample_values,
-            color: otu_ids
+            color: "Earth"
             },
             text: otu_labels
         };
@@ -197,13 +197,14 @@ function Data(id) {
 
  // ---------------------------
 
-// Create function to get the demographic information
+// Set Up functions:
+
 function Demographics(id) {
 
     d3.json("samples.json").then(function(sample_data) {
-        let filteredDemoInfo = sample_data.metadata.filter(details => details.id.toString() === id)[0];
+        var filteredDemoInfo = sample_data.metadata.filter(details => details.id.toString() === id)[0];
 
-        let demographicInfo = d3.select("#sample-metadata");
+        var demographicInfo = d3.select("#sample-metadata");
             
         demographicInfo.html("");
     
@@ -213,7 +214,11 @@ function Demographics(id) {
     });
 }
 
-// Create function that changes demographics and charts displayed when new ID is chosen
+
+// ---------------------------
+
+// Set Up function to change chart:
+
 function optionChanged(id) {
     Data(id);
     Demographics(id);
